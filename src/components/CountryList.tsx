@@ -1,5 +1,17 @@
 import React from "react";
+import { ICountry } from "../types";
+import { CountryItem } from "./CountryItem";
 
-export const CountryList = () => {
-  return <div>CountryList</div>;
+interface IProps {
+  countries: ICountry[];
+}
+
+export const CountryList = ({ countries }: IProps) => {
+  return (
+    <ul className="container list-group">
+      {countries.map((country) => {
+        return <CountryItem country={country} />;
+      })}
+    </ul>
+  );
 };
