@@ -1,22 +1,4 @@
-import { ICountry } from "../types";
-
-interface IData {
-  flags: { png: string; svg: string };
-  name: {
-    common: string;
-    official: string;
-    nativeName: { [language: string]: INativeNameLanguage }; // Нужна помощь здесь
-  };
-  capital: string[];
-  region: string;
-  area: number;
-  population: number;
-}
-
-export interface INativeNameLanguage {
-  official: string;
-  common: string;
-}
+import { IData, ICountry } from "../types";
 
 export const transformCountries = (countries: IData[]): ICountry[] =>
   countries.map((country: IData) => {
