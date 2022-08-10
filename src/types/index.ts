@@ -7,24 +7,31 @@ export interface ICountry {
   region: string;
 }
 
-export interface IData {
-  flags: { png: string; svg: string };
-  name: {
-    common: string;
-    official: string;
-    nativeName: INativeName;
-  };
+export interface ICountryApi {
+  flags: ICountryFlags;
+  name: ICountryName;
   capital: string[];
   region: string;
   area: number;
   population: number;
 }
 
-interface INativeName {
-  [language: string]: INativeNameLanguage;
+interface ICountryFlags {
+  png: string;
+  svg: string;
 }
 
-interface INativeNameLanguage {
+interface ICountryName {
+  common: string;
+  official: string;
+  nativeName: ICountryNativeName;
+}
+
+interface ICountryNativeName {
+  [lang: string]: ICountryNativeNameLang | undefined;
+}
+
+interface ICountryNativeNameLang {
   official: string;
   common: string;
 }
